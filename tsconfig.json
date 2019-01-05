@@ -6,7 +6,7 @@
     "outDir": "dist",
     "strict": true,
     "target": "es5",
-    "types": ["react"],
+    "types": ["react", "jest"],
     "typeRoots": ["node_modues/@types"]
   },
   "exclude": ["node_modules", "public"]
