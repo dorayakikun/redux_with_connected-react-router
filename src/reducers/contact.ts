@@ -12,7 +12,10 @@ const initialState: State = {
   email: undefined
 };
 
-export const reducer = (state: State = initialState, action: Action) => {
+export const reducer = (state: State = initialState, action?: Action) => {
+  if (action === undefined) {
+    return state;
+  }
   switch (action.type) {
     case ActionKeys.SET_CONTACT_FORM:
       return {
