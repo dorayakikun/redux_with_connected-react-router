@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack --mode production",
-    "dev": "webpack-dev-server --hot --mode development",
     "fmt": "eslint --fix --ext .js,.jsx,.ts,.tsx .",
+    "serve": "webpack-dev-server --hot --mode development",
     "test": "jest",
     "test:watch": "npm test -- --watch"
   },
