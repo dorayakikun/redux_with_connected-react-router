@@ -9,12 +9,12 @@ export interface Contact {
   email?: string;
 }
 
-interface SetContactFormAction {
+export interface SetContactFormAction {
   readonly type: ActionKeys.SET_CONTACT_FORM;
   payload: Contact;
 }
 
-interface SubmitContactFormAction {
+export interface SubmitContactFormAction {
   readonly type: ActionKeys.SUBMIT_CONTACT_FORM;
   payload: Contact;
 }
