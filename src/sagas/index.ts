@@ -1,8 +1,12 @@
 import { push } from "connected-react-router";
 import { startSubmit, stopSubmit } from "redux-form";
-import { all, fork, put, take, takeEvery } from "redux-saga/effects";
+import { all, put, takeEvery } from "redux-saga/effects";
 
-import { ActionKeys, SubmitContactFormAction, setContactForm } from "../actions/contact";
+import {
+  ActionKeys,
+  SubmitContactFormAction,
+  setContactForm
+} from "../actions/contact";
 
 export function* handleContactForm(action: SubmitContactFormAction) {
   yield put(startSubmit("contact"));

@@ -57,7 +57,6 @@ const renderTextField = ({
   input,
   label,
   meta: { touched, error },
-  children,
   ...custom
 }: any) => {
   return (
