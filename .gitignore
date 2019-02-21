@@ -65,3 +65,5 @@ typings/
 
 # Distribution JavaScript
 public/bundle.js
+
+junit.xml

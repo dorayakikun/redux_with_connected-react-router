@@ -1,0 +1,103 @@
+version: 2
+
+base_image: &base_image
+  image: circleci/node:lts-browsers
+
+build_image: &build_image
+  docker:
+    - <<: *base_image
+  working_directory: ~/repo
+
+save_lock: &save_lock
+  save_cache:
+    key: node_modules-{{ checksum "yarn.lock" }}
+    paths:
+      - node_modules
+
+restore_lock: &restore_lock
+  restore_cache:
+    keys: 
+      - node_modules-{{ checksum "yarn.lock" }}
+
+save: &save
+  save_cache:
+    key: code-{{ .Revision }}
+    paths:
+      - .
+      - ".git"
+      - "~/.ssh"
+      - "~/repo"
+
+restore: &restore
+  restore_cache:
+    keys: 
+      - code-{{ .Revision }}
+
+jobs:
+  install:
+    <<: *build_image
+
+    steps:
+      - checkout
+      - <<: *restore_lock
+      - run: yarn
+      - <<: *save_lock
+      - <<: *save
+
+  lint:
+    <<: *build_image
+
+    steps:
+      - <<: *restore
+      - <<: *restore_lock
+      - run: yarn lint -- --format junit -o reports/eslint.xml
+
+  typecheck:
+    <<: *build_image
+    steps:
+      - <<: *restore
+      - <<: *restore_lock
+      - run: yarn typecheck
+
+  audit:
+    <<: *build_image
+    steps:
+      - <<: *restore
+      - <<: *restore_lock
+      - run: yarn audit
+
+  test:
+    <<: *build_image
+
+    steps:
+      - <<: *restore
+      - <<: *restore_lock
+      - run: 
+          name: Run tests with JUnit as reporter
+          command: yarn test -- --ci --reporters=default --reporters=jest-junit
+          environment:
+            JEST_JUNIT_OUTPUT: "reports/js-test-results.xml"
+
+      - store_test_results:
+          path: ./reports
+
+      - store_artifacts:
+          path: ./reports
+
+workflows:
+  version: 2
+  exec:
+    jobs:
+      - install
+      - lint:
+          requires:
+            - install
+      - typecheck:
+          requires:
+            - install
+      - audit:
+          requires:
+            - install
+      - test:
+          requires:
+            - install
