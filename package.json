@@ -9,7 +9,7 @@
     "lint": "eslint --ext .js,.jsx,.ts,.tsx .",
     "start": "webpack-dev-server --hot --mode development",
     "test": "jest",
-    "test:watch": "npm test -- --watch",
+    "test:watch": "yarn test -- --watch",
     "typecheck": "tsc -p . --noEmit"
   },
   "keywords": [],

@@ -1,6 +1,5 @@
 import {
   ConnectedRouter,
-  connectRouter,
   routerMiddleware
 } from "connected-react-router";
 import { createBrowserHistory } from "history";
