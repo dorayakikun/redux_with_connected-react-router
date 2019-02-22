@@ -1,8 +1,4 @@
-import {
-  ConnectedRouter,
-  connectRouter,
-  routerMiddleware
-} from "connected-react-router";
+import { ConnectedRouter, routerMiddleware } from "connected-react-router";
 import { createBrowserHistory } from "history";
 import * as React from "react";
 import { render } from "react-dom";
@@ -19,7 +15,7 @@ import { rootSaga } from "./sagas";
 const history = createBrowserHistory();
 const sagaMiddleware = createSagaMiddleware();
 const store = createStore(
-  connectRouter(history)(reducer),
+  reducer(history),
   applyMiddleware(routerMiddleware(history), sagaMiddleware)
 );
 
