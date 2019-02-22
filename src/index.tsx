@@ -19,7 +19,7 @@ import { rootSaga } from "./sagas";
 const history = createBrowserHistory();
 const sagaMiddleware = createSagaMiddleware();
 const store = createStore(
-  connectRouter(history)(reducer),
+  reducer(history),
   applyMiddleware(routerMiddleware(history), sagaMiddleware)
 );
 
