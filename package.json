@@ -26,7 +26,7 @@
     "@types/react": "^16.8.5",
     "@types/react-dom": "^16.8.2",
     "@types/react-redux": "^7.0.1",
-    "@types/react-router": "^4.4.4",
+    "@types/react-router": "^5.0.0",
     "@types/redux-form": "^8.0.0",
     "ajv": "^6.9.2",
     "connected-react-router": "^6.3.1",
