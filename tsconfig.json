@@ -7,5 +7,5 @@
     "strict": true,
     "target": "es5"
   },
-  "exclude": ["node_modules", "public"]
+  "exclude": ["node_modules", "public", "./**/__tests__"]
 }
