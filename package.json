@@ -20,7 +20,7 @@
     "url": "https://github.com/dorayakikun/redux_with_connected-react-router.git"
   },
   "dependencies": {
-    "@material-ui/core": "^3.9.2",
+    "@material-ui/core": "^4.0.0",
     "@types/history": "^4.7.2",
     "@types/jest": "^24.0.0",
     "@types/react": "^16.8.5",
