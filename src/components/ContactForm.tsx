@@ -25,22 +25,22 @@ const styles = (theme: Theme) =>
   createStyles({
     layout: {
       width: "auto",
-      marginLeft: theme.spacing.unit * 2,
-      marginRight: theme.spacing.unit * 2,
-      [theme.breakpoints.up(600 + theme.spacing.unit * 2 * 2)]: {
+      marginLeft: theme.spacing(2),
+      marginRight: theme.spacing(2),
+      [theme.breakpoints.up(600 + theme.spacing(2) * 2)]: {
         width: 600,
         marginLeft: "auto",
         marginRight: "auto"
       }
     },
     paper: {
-      marginTop: theme.spacing.unit * 3,
-      marginBottom: theme.spacing.unit * 3,
-      padding: theme.spacing.unit * 2,
-      [theme.breakpoints.up(600 + theme.spacing.unit * 3 * 2)]: {
-        marginTop: theme.spacing.unit * 6,
-        marginBottom: theme.spacing.unit * 6,
-        padding: theme.spacing.unit * 3
+      marginTop: theme.spacing(3),
+      marginBottom: theme.spacing(3),
+      padding: theme.spacing(2),
+      [theme.breakpoints.up(600 + theme.spacing(3) * 2)]: {
+        marginTop: theme.spacing(6),
+        marginBottom: theme.spacing(6),
+        padding: theme.spacing(3)
       }
     },
     buttons: {
@@ -48,8 +48,8 @@ const styles = (theme: Theme) =>
       justifyContent: "flex-end"
     },
     button: {
-      marginTop: theme.spacing.unit * 3,
-      marginLeft: theme.spacing.unit
+      marginTop: theme.spacing(3),
+      marginLeft: theme.spacing(1)
     }
   });
 
@@ -74,7 +74,7 @@ const PureContactForm: React.SFC<
           <Typography variant="h6" gutterBottom>
             redux-form sample
           </Typography>
-          <Grid container spacing={24}>
+          <Grid container>
             <Grid item xs={12}>
               <div>
                 <Field
