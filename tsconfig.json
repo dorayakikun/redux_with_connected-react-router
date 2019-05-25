@@ -3,9 +3,10 @@
     "jsx": "react",
     "lib": ["dom", "esnext"],
     "moduleResolution": "node",
-    "outDir": "dist",
+    "outDir": "public",
     "strict": true,
     "target": "es5"
   },
-  "exclude": ["node_modules", "public", "./**/__tests__"]
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"]
 }
